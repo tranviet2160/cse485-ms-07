@@ -5,23 +5,22 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 
-// Trang Welcome mặc định
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])
+        ->name('dashboard');
+
+    Route::get('/categories', [CategoryController::class, 'index'])
+        ->name('categories.index');
+
+    Route::get('/products', [ProductController::class, 'index'])
+        ->name('products.index');
+
+    Route::get('/about', [DashboardController::class, 'about'])
+        ->name('about');
+
+    Route::get('/flash-demo', function () {
+        return redirect()->route('admin.dashboard')
+            ->with('success', 'Layout OK — san sang Migration');
+    })->name('flash');
 });
-
-// Dashboard
-Route::get('/admin', [DashboardController::class, 'index'])
-    ->name('admin.dashboard');
-
-// Categories
-Route::get('/admin/categories', [CategoryController::class, 'index'])
-    ->name('admin.categories.index');
-
-// Products
-Route::get('/admin/products', [ProductController::class, 'index'])
-    ->name('admin.products.index');
-
-// About
-Route::get('/admin/about', [DashboardController::class, 'about'])
-    ->name('admin.about');

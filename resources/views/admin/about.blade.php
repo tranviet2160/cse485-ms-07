@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
-</head>
-<body>
+@extends('layouts.admin')
 
-<h1>About MiniShop</h1>
+@section('title','About')
 
-<nav>
-    <a href="{{ route('admin.dashboard') }}">Dashboard</a> |
-    <a href="{{ route('admin.categories.index') }}">Categories</a> |
-    <a href="{{ route('admin.products.index') }}">Products</a> |
-    <a href="{{ route('admin.about') }}">About</a>
-</nav>
+@section('page_heading','About')
+
+@section('content')
+
+<div class="card">
+
+<h2>About MiniShop</h2>
+
+<br>
 
 <p>
-MiniShop là dự án xuyên suốt học phần Backend PHP & Laravel.
+
+MiniShop được xây dựng bằng Laravel Framework.
+
+Phiếu 07 tập trung vào Blade Layout.
+
+Các Phiếu tiếp theo sẽ phát triển Migration,
+Seeder và CRUD hoàn chỉnh.
+
 </p>
 
-<p>
-Phiếu 06 tập trung làm quen với Route, Controller và Blade.
-</p>
+</div>
 
-<p>
-Các phiếu tiếp theo sẽ xây dựng Layout, Migration, Model và CRUD hoàn chỉnh.
-</p>
-
-</body>
-</html>
+@endsection

@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-</head>
-<body>
+@extends('layouts.admin')
 
-<h1>MiniShop Admin — Dashboard</h1>
+@section('title','Dashboard')
 
-<nav>
-    <a href="{{ route('admin.dashboard') }}">Dashboard</a> |
-    <a href="{{ route('admin.categories.index') }}">Categories</a> |
-    <a href="{{ route('admin.products.index') }}">Products</a> |
-    <a href="{{ route('admin.about') }}">About</a>
-</nav>
+@section('page_heading','Dashboard')
 
-<hr>
+@section('content')
 
-<h2>Thống kê MiniShop</h2>
+<div class="card">
 
-<ul>
-    <li>Categories: {{ $stats['categories'] }}</li>
-    <li>Products: {{ $stats['products'] }}</li>
-    <li>Inventory Value: {{ number_format($stats['inventory_value']) }} VND</li>
-</ul>
+<h2>MiniShop Admin Dashboard</h2>
 
-</body>
-</html>
+<br>
+
+<p>Categories : {{ $stats['categories'] }}</p>
+
+<p>Products : {{ $stats['products'] }}</p>
+
+<p>Inventory Value : {{ number_format($stats['inventory_value']) }} VND</p>
+
+<br>
+
+<a href="{{ route('admin.flash') }}" class="btn">
+Flash Demo
+</a>
+
+</div>
+
+@endsection
